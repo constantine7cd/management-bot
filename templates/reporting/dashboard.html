@@ -1,0 +1,21 @@
+{% extends "base.html" %}{% load i18n %}
+{% block content %}
+<header class="page-head"><div><p class="eyebrow">{% translate "OVERVIEW" %}</p><h1>{% translate "Good day" %}, {{ user.first_name|default:user.email }}</h1><p class="muted">{% translate "A live view of your workforce." %}</p></div>{% if user.can_manage_operations %}<a class="button primary" href="{% url 'employee_add' %}">+ {% translate "Add employee" %}</a>{% endif %}</header>
+<section class="metrics">
+  <article><span>{% translate "Active employees" %}</span><strong>{{ active_count }}</strong></article>
+  <article><span>{% translate "Working now" %}</span><strong class="green">{{ working }}</strong></article>
+  <article><span>{% translate "Hours this week" %}</span><strong>{{ week_hours|floatformat:1 }}</strong></article>
+  <article><span>{% translate "Needs attention" %}</span><strong class="amber">{{ long_shifts|add:pending_leave|add:pending_corrections|add:open_incidents }}</strong></article>
+  <article><span>{% translate "Supervisor documents this month" %}</span><strong>{{ document_count }}</strong></article>
+</section>
+<section class="grid-two">
+  <article class="panel"><div class="panel-head"><h2>{% translate "Recent attendance" %}</h2><a href="{% url 'shifts' %}">{% translate "View all" %}</a></div>
+    <div class="table-wrap"><table><thead><tr><th>Employee</th><th>Started</th><th>Status</th></tr></thead><tbody>
+    {% for shift in recent_shifts %}<tr><td>{{ shift.employee }}</td><td>{{ shift.local_started_at|date:"M d, H:i T" }}<small>{{ shift.start_timezone }}</small></td><td><span class="badge {% if shift.ended_at %}neutral{% else %}success{% endif %}">{% if shift.ended_at %}Completed{% else %}Working{% endif %}</span></td></tr>{% empty %}<tr><td colspan="3" class="empty">No attendance yet.</td></tr>{% endfor %}
+    </tbody></table></div>
+  </article>
+  <article class="panel"><div class="panel-head"><h2>{% translate "Action queue" %}</h2><a href="{% url 'approvals' %}">{% translate "Review" %}</a></div>
+    <ul class="action-list"><li><span>Leave requests</span><b>{{ pending_leave }}</b></li><li><span>Time corrections</span><b>{{ pending_corrections }}</b></li><li><span>Open incidents</span><b>{{ open_incidents }}</b></li><li><span>Long shifts</span><b>{{ long_shifts }}</b></li></ul>
+  </article>
+</section>
+{% endblock %}

@@ -1,0 +1,7 @@
+{% extends "base.html" %}{% load i18n %}
+{% block content %}
+<header class="page-head"><div><p class="eyebrow">GEOFENCES</p><h1>{% translate "Workplaces" %}</h1><p class="muted">Configure coordinates, verification accuracy and numbered daily shifts.</p></div><a class="button primary" href="{% url 'workplace_add' %}">+ Add workplace</a></header>
+<section class="panel"><div class="table-wrap"><table><thead><tr><th>Workplace</th><th>Coordinates</th><th>Timezone</th><th>Geofence</th><th>Daily shifts</th><th>Status</th><th></th></tr></thead><tbody>
+{% for workplace in workplaces %}<tr><td><b>{{ workplace.name }}</b></td><td>{{ workplace.latitude }}, {{ workplace.longitude }}</td><td>{{ workplace.timezone }}<small>Detected automatically</small></td><td>{{ workplace.radius_meters }} m · accuracy ≤ {{ workplace.max_accuracy_meters }} m</td><td>{% for shift in workplace.daily_shifts.all %}<div><b>#{{ shift.number }}</b> {{ shift.name|default:"Shift" }} · {{ shift.start_time|time:"H:i" }}–{{ shift.end_time|time:"H:i" }} {% if not shift.is_active %}<span class="muted">inactive</span>{% endif %}</div>{% empty %}<span class="muted">No shifts configured</span>{% endfor %}</td><td><span class="badge {% if workplace.is_active %}success{% else %}neutral{% endif %}">{{ workplace.is_active|yesno:"Active,Inactive" }}</span></td><td><a href="{% url 'workplace_edit' workplace.pk %}">Edit</a></td></tr>{% empty %}<tr><td colspan="7" class="empty">No workplaces yet.</td></tr>{% endfor %}
+</tbody></table></div></section>
+{% endblock %}

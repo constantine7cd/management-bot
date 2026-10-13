@@ -1,0 +1,27 @@
+services:
+  web:
+    restart: unless-stopped
+    ports: []
+    environment:
+      DJANGO_SETTINGS_MODULE: config.settings.production
+  worker:
+    restart: unless-stopped
+    environment:
+      DJANGO_SETTINGS_MODULE: config.settings.production
+  beat:
+    restart: unless-stopped
+    environment:
+      DJANGO_SETTINGS_MODULE: config.settings.production
+  caddy:
+    image: caddy:2.10-alpine
+    restart: unless-stopped
+    env_file: .env
+    ports: ["80:80", "443:443"]
+    volumes:
+      - ./deploy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+    depends_on: [web]
+volumes:
+  caddy-data:
+  caddy-config:

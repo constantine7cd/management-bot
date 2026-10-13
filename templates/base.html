@@ -1,0 +1,37 @@
+{% load static i18n %}
+<!doctype html>
+<html lang="{{ LANGUAGE_CODE|default:'en' }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{% block title %}Work Hours{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'css/app.css' %}">
+  <link rel="stylesheet" href="{% static 'css/enhancements.css' %}">
+</head>
+<body>
+  {% if user.is_authenticated %}
+  <aside class="sidebar">
+    <a class="brand" href="{% url 'dashboard' %}"><span>W</span> Work Hours</a>
+    <nav>
+      <a href="{% url 'dashboard' %}">{% translate "Dashboard" %}</a>
+      <a href="{% url 'employees' %}">{% translate "Employees" %}</a>
+      {% if user.is_company_admin %}<a href="{% url 'managers' %}">{% translate "Managers" %}</a>{% endif %}
+      {% if user.can_manage_operations %}<a href="{% url 'teams' %}">{% translate "Teams" %}</a><a href="{% url 'workplaces' %}">{% translate "Workplaces" %}</a><a href="{% url 'holiday_calendar' %}">{% translate "Holidays" %}</a>{% endif %}
+      <a href="{% url 'shifts' %}">{% translate "Attendance" %}</a>
+      <a href="{% url 'approvals' %}">{% translate "Approvals" %}</a>
+      <a href="{% url 'leave_history' %}">{% translate "Days off" %}</a>
+      <a href="{% url 'incidents' %}">{% translate "Incidents" %}</a>
+      <a href="{% url 'supervisor_documents' %}">{% translate "Supervisor documents" %}</a>
+      <a href="{% url 'exports' %}">{% translate "Exports" %}</a>
+      {% if user.is_company_admin %}<a href="{% url 'audit' %}">{% translate "Audit log" %}</a><a href="/django-admin/">{% translate "Configuration" %}</a>{% endif %}
+    </nav>
+    <div class="account"><span>{{ user.email }}</span><small>{{ user.get_role_display }}</small><div class="account-actions"><a href="{% url 'mfa_index' %}">{% translate "Security" %}</a><form method="post" action="{% url 'account_logout' %}">{% csrf_token %}<button type="submit" class="sidebar-action">{% translate "Sign out" %}</button></form></div></div>
+    <form class="language" action="{% url 'set_language' %}" method="post">{% csrf_token %}<input name="next" type="hidden" value="{{ request.path }}"><select name="language" onchange="this.form.submit()"><option value="en" {% if LANGUAGE_CODE == 'en' %}selected{% endif %}>English</option><option value="ru" {% if LANGUAGE_CODE == 'ru' %}selected{% endif %}>Русский</option></select></form>
+  </aside>
+  {% endif %}
+  <main class="{% if user.is_authenticated %}shell{% else %}auth-shell{% endif %}">
+    {% for message in messages %}<div class="notice {{ message.tags }}">{{ message }}</div>{% endfor %}
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>

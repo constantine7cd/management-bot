@@ -1,0 +1,65 @@
+[project]
+name = "management-bot"
+version = "0.1.0"
+description = "Telegram-first employee attendance management"
+requires-python = ">=3.13,<3.14"
+dependencies = [
+  "Django>=5.2,<5.3",
+  "aiogram>=3.28,<4",
+  "celery[redis]>=5.6,<6",
+  "django-allauth[mfa]>=65.14,<66",
+  "django-csp>=4.0,<5",
+  "django-environ>=0.12,<1",
+  "django-ratelimit>=4.1,<5",
+  "gunicorn>=23,<24",
+  "holidays>=0.80,<1",
+  "openpyxl>=3.1,<4",
+  "psycopg[binary]>=3.2,<4",
+  "sentry-sdk[django]>=2.43,<3",
+  "timezonefinder>=8,<9",
+  "uvicorn[standard]>=0.37,<1",
+  "whitenoise>=6.11,<7",
+]
+
+[project.optional-dependencies]
+dev = [
+  "coverage[toml]>=7.10,<8",
+  "django-stubs>=5.2,<6",
+  "mypy>=1.18,<2",
+  "pytest>=8.4,<9",
+  "pytest-django>=4.11,<5",
+  "ruff>=0.14,<1",
+]
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "config.settings.test"
+python_files = ["test_*.py"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py313"
+exclude = ["**/migrations/*.py"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "DJ", "UP"]
+ignore = ["DJ001", "DJ008", "E501", "F405"]
+
+[tool.mypy]
+python_version = "3.13"
+plugins = ["mypy_django_plugin.main"]
+ignore_missing_imports = true
+
+[tool.django-stubs]
+django_settings_module = "config.settings.test"
+
+[[tool.mypy.overrides]]
+module = ["apps.accounts.models", "apps.accounts.admin", "apps.botapp.handlers"]
+ignore_errors = true
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["config", "apps"]

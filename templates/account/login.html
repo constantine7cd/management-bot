@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Sign in · Work Hours{% endblock %}
+{% block content %}
+<section class="auth-card">
+  <div class="brand hero"><span>W</span> Work Hours</div>
+  <h1>Welcome back</h1><p class="muted">Sign in to manage attendance and your team.</p>
+  <form method="post">{% csrf_token %}{{ form.as_p }}<button class="button primary wide">Sign in</button></form>
+  <p class="auth-help">Account access is managed by your company administrator.</p>
+</section>
+{% endblock %}

@@ -1,0 +1,6 @@
+{% extends "base.html" %}{% load i18n %}
+{% block title %}{% translate "Set up MFA" %} · Work Hours{% endblock %}
+{% block content %}
+<header class="page-head"><div><p class="eyebrow">ACCOUNT SECURITY</p><h1>{% translate "Set up authenticator app" %}</h1><p class="muted">Scan the QR code, then enter the current six-digit code.</p></div><a class="button" href="{% url 'mfa_index' %}">← {% translate "Back" %}</a></header>
+<section class="panel form-panel"><div class="mfa-setup"><img class="qr-code" src="{{ totp_svg_data_uri }}" alt="Authenticator QR code"><div><p class="muted">If scanning is unavailable, enter this secret manually:</p><code class="secret-code">{{ form.secret }}</code></div></div><form method="post" action="{% url 'mfa_activate_totp' %}">{% csrf_token %}{{ form.as_p }}<div class="form-actions"><a class="button" href="{% url 'mfa_index' %}">{% translate "Back" %}</a><button class="button primary" type="submit">{% translate "Activate" %}</button></div></form></section>
+{% endblock %}

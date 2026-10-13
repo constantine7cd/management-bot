@@ -1,0 +1,7 @@
+{% extends "base.html" %}{% load i18n %}
+{% block content %}
+<header class="page-head"><div><p class="eyebrow">ORGANIZATION</p><h1>{% translate "Teams" %}</h1><p class="muted">Group employees and assign the managers who may access them.</p></div><a class="button primary" href="{% url 'team_add' %}">+ Add team</a></header>
+<section class="panel"><div class="table-wrap"><table><thead><tr><th>Team</th><th>Managers</th><th>Employees</th><th>Status</th><th></th></tr></thead><tbody>
+{% for team in teams %}<tr><td><b>{{ team.name }}</b></td><td>{% for manager in team.managers.all %}{{ manager }}{% if not forloop.last %}, {% endif %}{% empty %}<span class="muted">Unassigned</span>{% endfor %}</td><td>{{ team.employee_set.count }}</td><td><span class="badge {% if team.is_active %}success{% else %}neutral{% endif %}">{{ team.is_active|yesno:"Active,Inactive" }}</span></td><td><a href="{% url 'team_edit' team.pk %}">Edit</a></td></tr>{% empty %}<tr><td colspan="5" class="empty">No teams yet.</td></tr>{% endfor %}
+</tbody></table></div></section>
+{% endblock %}

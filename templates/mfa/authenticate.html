@@ -1,0 +1,5 @@
+{% extends "base.html" %}{% load i18n %}
+{% block title %}{% translate "Verification required" %} · Work Hours{% endblock %}
+{% block content %}
+<section class="auth-card"><div class="brand hero"><span>W</span> Work Hours</div><h1>{% translate "Verification required" %}</h1><p class="muted">Enter the current code from your authenticator app.</p><form method="post" action="{% url 'mfa_authenticate' %}">{% csrf_token %}{{ form.as_p }}<button class="button primary wide" type="submit">{% translate "Continue" %}</button></form></section>
+{% endblock %}

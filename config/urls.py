@@ -1,0 +1,66 @@
+from django.contrib import admin
+from django.urls import include, path
+
+from apps.botapp.views import telegram_webhook
+from apps.reporting import views
+
+urlpatterns = [
+    path("i18n/", include("django.conf.urls.i18n")),
+    path("accounts/", include("apps.accounts.urls")),
+    path("django-admin/", admin.site.urls),
+    path("", views.dashboard, name="dashboard"),
+    path("employees/", views.employees, name="employees"),
+    path("employees/add/", views.employee_edit, name="employee_add"),
+    path("employees/<int:pk>/edit/", views.employee_edit, name="employee_edit"),
+    path("employees/<int:pk>/invite/", views.employee_invite, name="employee_invite"),
+    path("employees/<int:pk>/archive/", views.employee_archive, name="employee_archive"),
+    path("managers/", views.managers, name="managers"),
+    path("managers/add/", views.manager_edit, name="manager_add"),
+    path("managers/<int:pk>/edit/", views.manager_edit, name="manager_edit"),
+    path("managers/<int:pk>/reset-mfa/", views.manager_mfa_reset, name="manager_mfa_reset"),
+    path("teams/", views.teams, name="teams"),
+    path("teams/add/", views.team_edit, name="team_add"),
+    path("teams/<int:pk>/edit/", views.team_edit, name="team_edit"),
+    path("workplaces/", views.workplaces, name="workplaces"),
+    path("workplaces/add/", views.workplace_edit, name="workplace_add"),
+    path("workplaces/<int:pk>/edit/", views.workplace_edit, name="workplace_edit"),
+    path("holidays/", views.holiday_calendar, name="holiday_calendar"),
+    path("attendance/", views.shifts, name="shifts"),
+    path("approvals/", views.approvals, name="approvals"),
+    path("leave/", views.leave_history, name="leave_history"),
+    path("leave/balances/add/", views.leave_balance_edit, name="leave_balance_add"),
+    path("leave/balances/<int:pk>/edit/", views.leave_balance_edit, name="leave_balance_edit"),
+    path("leave/days/add/", views.leave_request_edit, name="leave_request_add"),
+    path("leave/days/<int:pk>/edit/", views.leave_request_edit, name="leave_request_edit"),
+    path("approvals/leave/<int:pk>/<str:decision>/", views.leave_review, name="leave_review"),
+    path("approvals/correction/<int:pk>/<str:decision>/", views.correction_review, name="correction_review"),
+    path("incidents/", views.incidents, name="incidents"),
+    path("incidents/<int:pk>/resolve/", views.incident_resolve, name="incident_resolve"),
+    path("documents/", views.supervisor_documents, name="supervisor_documents"),
+    path(
+        "documents/settings/",
+        views.supervisor_document_settings,
+        name="supervisor_document_settings",
+    ),
+    path(
+        "documents/download/",
+        views.supervisor_document_bulk_download,
+        name="supervisor_document_bulk_download",
+    ),
+    path(
+        "documents/<int:pk>/",
+        views.supervisor_document_detail,
+        name="supervisor_document_detail",
+    ),
+    path(
+        "documents/versions/<int:pk>/download/",
+        views.supervisor_document_download,
+        name="supervisor_document_download",
+    ),
+    path("exports/", views.exports, name="exports"),
+    path("exports/<uuid:pk>/download/", views.export_download, name="export_download"),
+    path("audit/", views.audit, name="audit"),
+    path("telegram/webhook/", telegram_webhook, name="telegram_webhook"),
+    path("health/live", views.health_live),
+    path("health/ready", views.health_ready),
+]

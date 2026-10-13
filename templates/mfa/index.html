@@ -1,0 +1,10 @@
+{% extends "base.html" %}{% load i18n %}
+{% block title %}{% translate "Security" %} · Work Hours{% endblock %}
+{% block content %}
+<header class="page-head"><div><p class="eyebrow">ACCOUNT</p><h1>{% translate "Security" %}</h1><p class="muted">Manage your password, authenticator app, and recovery codes.</p></div></header>
+<section class="security-grid">
+  <article class="panel security-card"><div><h2>{% translate "Password" %}</h2><p class="muted">Update the password used to sign in.</p></div><a class="button" href="{% url 'account_change_password' %}">{% translate "Change password" %}</a></article>
+  <article class="panel security-card"><div><h2>{% translate "Authenticator app" %}</h2>{% if authenticators.totp %}<p class="status-line success">{% translate "Active" %}</p><p class="muted">{% translate "MFA cannot be removed or replaced from this account. Contact an administrator if it must be reset." %}</p>{% else %}<p class="status-line">{% translate "Not configured" %}</p><p class="muted">{% translate "Enrollment is available once. After setup, only an administrator can reset it." %}</p>{% endif %}</div>{% if not authenticators.totp %}<a class="button primary" href="{% url 'mfa_activate_totp' %}">{% translate "Set up MFA" %}</a>{% endif %}</article>
+  {% if authenticators.totp %}<article class="panel security-card"><div><h2>{% translate "Recovery codes" %}</h2><p class="muted">{% translate "Codes are shown once and cannot be regenerated. Contact an administrator for a complete MFA reset if they are lost." %}</p></div>{% if authenticators.recovery_codes and not authenticators.recovery_codes.did_view %}<a class="button" href="{% url 'mfa_view_recovery_codes' %}">{% translate "Show recovery codes" %}</a>{% else %}<span class="badge neutral">{% translate "Previously displayed" %}</span>{% endif %}</article>{% endif %}
+</section>
+{% endblock %}

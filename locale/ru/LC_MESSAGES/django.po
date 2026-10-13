@@ -1,0 +1,462 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-10 15:53+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: apps/organization/models.py:110
+msgid "Operations worker"
+msgstr "Операционный работник"
+
+#: apps/organization/models.py:111
+msgid "Shift supervisor"
+msgstr "Начальник смены"
+
+#: apps/reporting/views.py:179
+msgid "Manager MFA was reset. They must enroll an authenticator again."
+msgstr "MFA менеджера сброшена. Ему необходимо заново настроить приложение-аутентификатор."
+
+#: apps/reporting/views.py:582
+msgid "Supervisor document reupload window updated."
+msgstr "Срок повторной загрузки документов обновлен."
+
+#: apps/reporting/views.py:584
+msgid "Enter a reupload window from 0 to 30 days."
+msgstr "Укажите срок повторной загрузки от 0 до 30 дней."
+
+#: apps/supervisor_documents/forms.py:11
+msgid "Supervisor reupload window (days)"
+msgstr "Срок повторной загрузки руководителем (дни)"
+
+#: apps/supervisor_documents/forms.py:25
+msgid "All types"
+msgstr "Все типы"
+
+#: apps/supervisor_documents/forms.py:26
+msgid "All workplaces"
+msgstr "Все рабочие места"
+
+#: apps/supervisor_documents/forms.py:27
+msgid "All supervisors"
+msgstr "Все начальники смены"
+
+#: apps/supervisor_documents/models.py:27
+msgid "Daily timesheet"
+msgstr "Ежедневный табель"
+
+#: apps/supervisor_documents/models.py:28
+msgid "Delivery note"
+msgstr "Товарная накладная"
+
+#: apps/supervisor_documents/models.py:29
+msgid "Monthly inventory"
+msgstr "Ежемесячная инвентаризация"
+
+#: templates/account/password_change.html:2
+#: templates/account/password_change.html:4
+#: templates/account/password_change.html:5 templates/mfa/index.html:6
+msgid "Change password"
+msgstr "Изменить пароль"
+
+#: templates/account/password_change.html:4
+#: templates/account/password_change.html:5
+#: templates/account/reauthenticate.html:4
+#: templates/account/reauthenticate.html:5 templates/mfa/reauthenticate.html:4
+#: templates/mfa/reauthenticate.html:5
+#: templates/mfa/recovery_codes/index.html:4
+#: templates/mfa/recovery_codes/index.html:6
+#: templates/mfa/totp/activate_form.html:4
+#: templates/mfa/totp/activate_form.html:5
+#: templates/reporting/supervisor_documents/detail.html:3
+msgid "Back"
+msgstr "Назад"
+
+#: templates/account/reauthenticate.html:2
+#: templates/account/reauthenticate.html:4 templates/mfa/reauthenticate.html:2
+#: templates/mfa/reauthenticate.html:4
+msgid "Confirm your identity"
+msgstr "Подтвердите личность"
+
+#: templates/account/reauthenticate.html:5 templates/mfa/reauthenticate.html:5
+msgid "Confirm"
+msgstr "Подтвердить"
+
+#: templates/base.html:16
+msgid "Dashboard"
+msgstr "Панель"
+
+#: templates/base.html:17 templates/reporting/employees.html:3
+msgid "Employees"
+msgstr "Сотрудники"
+
+#: templates/base.html:18 templates/reporting/managers.html:3
+msgid "Managers"
+msgstr "Менеджеры"
+
+#: templates/base.html:19 templates/reporting/teams.html:3
+msgid "Teams"
+msgstr "Команды"
+
+#: templates/base.html:19 templates/reporting/workplaces.html:3
+msgid "Workplaces"
+msgstr "Рабочие места"
+
+#: templates/base.html:19 templates/reporting/holidays.html:3
+msgid "Holidays"
+msgstr "Праздники"
+
+#: templates/base.html:20
+msgid "Attendance"
+msgstr "Учёт времени"
+
+#: templates/base.html:21
+msgid "Approvals"
+msgstr "Согласования"
+
+#: templates/base.html:22 templates/reporting/leave_history.html:3
+msgid "Days off"
+msgstr "Отсутствия"
+
+#: templates/base.html:23
+msgid "Incidents"
+msgstr "Инциденты"
+
+#: templates/base.html:24 templates/reporting/supervisor_documents/list.html:3
+msgid "Supervisor documents"
+msgstr "Документы начальников смены"
+
+#: templates/base.html:25
+msgid "Exports"
+msgstr "Экспорт"
+
+#: templates/base.html:26
+msgid "Audit log"
+msgstr "Журнал аудита"
+
+#: templates/base.html:26
+msgid "Configuration"
+msgstr "Настройки"
+
+#: templates/base.html:28 templates/mfa/index.html:2 templates/mfa/index.html:4
+msgid "Security"
+msgstr "Безопасность"
+
+#: templates/base.html:28
+msgid "Sign out"
+msgstr "Выйти"
+
+#: templates/mfa/authenticate.html:2 templates/mfa/authenticate.html:4
+msgid "Verification required"
+msgstr "Требуется подтверждение"
+
+#: templates/mfa/authenticate.html:4
+msgid "Continue"
+msgstr "Продолжить"
+
+#: templates/mfa/index.html:6
+msgid "Password"
+msgstr "Пароль"
+
+#: templates/mfa/index.html:7
+msgid "Authenticator app"
+msgstr "Приложение-аутентификатор"
+
+#: templates/mfa/index.html:7
+msgid "Active"
+msgstr "Активно"
+
+#: templates/mfa/index.html:7
+msgid "MFA cannot be removed or replaced from this account. Contact an administrator if it must be reset."
+msgstr "Для этой учетной записи нельзя удалить или заменить MFA самостоятельно. Если требуется сброс, обратитесь к администратору."
+
+#: templates/mfa/index.html:7 templates/reporting/managers.html:5
+msgid "Not configured"
+msgstr "Не настроено"
+
+#: templates/mfa/index.html:7
+msgid "Enrollment is available once. After setup, only an administrator can reset it."
+msgstr "Настройка доступна только один раз. После нее сбросить MFA может только администратор."
+
+#: templates/mfa/index.html:7 templates/mfa/totp/activate_form.html:2
+msgid "Set up MFA"
+msgstr "Настроить MFA"
+
+#: templates/mfa/index.html:8 templates/mfa/recovery_codes/index.html:2
+#: templates/mfa/recovery_codes/index.html:4
+msgid "Recovery codes"
+msgstr "Коды восстановления"
+
+#: templates/mfa/index.html:8
+msgid "Codes are shown once and cannot be regenerated. Contact an administrator for a complete MFA reset if they are lost."
+msgstr "Коды показываются один раз, и создать их заново нельзя. Если они утеряны, обратитесь к администратору для полного сброса MFA."
+
+#: templates/mfa/index.html:8
+msgid "Show recovery codes"
+msgstr "Показать коды восстановления"
+
+#: templates/mfa/index.html:8
+msgid "Previously displayed"
+msgstr "Уже показаны"
+
+#: templates/mfa/recovery_codes/index.html:5
+msgid "Save these codes now"
+msgstr "Сохраните эти коды сейчас"
+
+#: templates/mfa/recovery_codes/index.html:6
+msgid "These recovery codes have already been displayed and cannot be viewed again. Contact an administrator for a complete MFA reset if they were not saved."
+msgstr "Эти коды восстановления уже были показаны, и просмотреть их повторно нельзя. Если вы их не сохранили, обратитесь к администратору для полного сброса MFA."
+
+#: templates/mfa/totp/activate_form.html:4
+msgid "Set up authenticator app"
+msgstr "Настроить приложение-аутентификатор"
+
+#: templates/mfa/totp/activate_form.html:5
+msgid "Activate"
+msgstr "Активировать"
+
+#: templates/reporting/dashboard.html:3
+msgid "OVERVIEW"
+msgstr "ОБЗОР"
+
+#: templates/reporting/dashboard.html:3
+msgid "Good day"
+msgstr "Добрый день"
+
+#: templates/reporting/dashboard.html:3
+msgid "A live view of your workforce."
+msgstr "Актуальная информация о вашей команде."
+
+#: templates/reporting/dashboard.html:3 templates/reporting/employees.html:3
+msgid "Add employee"
+msgstr "Добавить сотрудника"
+
+#: templates/reporting/dashboard.html:5
+msgid "Active employees"
+msgstr "Активные сотрудники"
+
+#: templates/reporting/dashboard.html:6
+msgid "Working now"
+msgstr "Сейчас работают"
+
+#: templates/reporting/dashboard.html:7
+msgid "Hours this week"
+msgstr "Часов за неделю"
+
+#: templates/reporting/dashboard.html:8
+msgid "Needs attention"
+msgstr "Требует внимания"
+
+#: templates/reporting/dashboard.html:9
+msgid "Supervisor documents this month"
+msgstr "Документы начальников смены за месяц"
+
+#: templates/reporting/dashboard.html:12
+msgid "Recent attendance"
+msgstr "Последние смены"
+
+#: templates/reporting/dashboard.html:12
+msgid "View all"
+msgstr "Показать все"
+
+#: templates/reporting/dashboard.html:17
+msgid "Action queue"
+msgstr "Очередь действий"
+
+#: templates/reporting/dashboard.html:17
+msgid "Review"
+msgstr "Проверить"
+
+#: templates/reporting/employees.html:3
+msgid "PEOPLE"
+msgstr "КОМАНДА"
+
+#: templates/reporting/employees.html:3
+msgid "Rates are informational and never used for salary calculations."
+msgstr "Ставки носят информационный характер и не используются для расчёта зарплаты."
+
+#: templates/reporting/employees.html:4
+msgid "All categories"
+msgstr "Все категории"
+
+#: templates/reporting/employees.html:5
+msgid "Category"
+msgstr "Категория"
+
+#: templates/reporting/managers.html:3
+msgid "Managers have company-wide operational access. Only admins can manage accounts and reset MFA."
+msgstr "Менеджеры имеют операционный доступ ко всей компании. Управлять учетными записями и сбрасывать MFA могут только администраторы."
+
+#: templates/reporting/managers.html:3
+msgid "Add manager"
+msgstr "Добавить менеджера"
+
+#: templates/reporting/managers.html:5
+msgid "Configured"
+msgstr "Настроено"
+
+#: templates/reporting/managers.html:5
+msgid "Edit"
+msgstr "Изменить"
+
+#: templates/reporting/managers.html:5
+msgid "Reset this manager's MFA? They will need to enroll again."
+msgstr "Сбросить MFA этого менеджера? Ему потребуется настроить ее заново."
+
+#: templates/reporting/managers.html:5
+msgid "Reset MFA"
+msgstr "Сбросить MFA"
+
+#: templates/reporting/managers.html:5
+msgid "No managers yet."
+msgstr "Менеджеров пока нет."
+
+#: templates/reporting/supervisor_documents/detail.html:3
+msgid "VERSION HISTORY"
+msgstr "ИСТОРИЯ ВЕРСИЙ"
+
+#: templates/reporting/supervisor_documents/detail.html:3
+msgid "The initial upload remains the searchable record; every reupload is retained below."
+msgstr "Для поиска используется первоначальная загрузка; ниже сохраняются все повторные загрузки."
+
+#: templates/reporting/supervisor_documents/detail.html:4
+#: templates/reporting/supervisor_documents/list.html:6
+msgid "Supervisor"
+msgstr "Начальник смены"
+
+#: templates/reporting/supervisor_documents/detail.html:4
+#: templates/reporting/supervisor_documents/list.html:6
+msgid "Workplace"
+msgstr "Рабочее место"
+
+#: templates/reporting/supervisor_documents/detail.html:4
+#: templates/reporting/supervisor_documents/list.html:6
+msgid "Initial upload"
+msgstr "Первая загрузка"
+
+#: templates/reporting/supervisor_documents/detail.html:4
+msgid "Description"
+msgstr "Описание"
+
+#: templates/reporting/supervisor_documents/detail.html:5
+msgid "Version"
+msgstr "Версия"
+
+#: templates/reporting/supervisor_documents/detail.html:5
+msgid "Uploaded"
+msgstr "Загружено"
+
+#: templates/reporting/supervisor_documents/detail.html:5
+msgid "Uploaded by"
+msgstr "Кем загружено"
+
+#: templates/reporting/supervisor_documents/detail.html:5
+msgid "Original filename"
+msgstr "Исходное имя файла"
+
+#: templates/reporting/supervisor_documents/detail.html:5
+msgid "Size"
+msgstr "Размер"
+
+#: templates/reporting/supervisor_documents/detail.html:5
+#: templates/reporting/supervisor_documents/list.html:6
+msgid "Latest"
+msgstr "Последняя"
+
+#: templates/reporting/supervisor_documents/detail.html:5
+#: templates/reporting/supervisor_documents/list.html:7
+msgid "Download"
+msgstr "Скачать"
+
+#: templates/reporting/supervisor_documents/list.html:3
+msgid "OPERATIONS"
+msgstr "ОПЕРАЦИИ"
+
+#: templates/reporting/supervisor_documents/list.html:3
+msgid "Searches use the initial upload timestamp and show the latest version by default."
+msgstr "Поиск выполняется по времени первой загрузки, а по умолчанию показывается последняя версия."
+
+#: templates/reporting/supervisor_documents/list.html:4
+msgid "Reupload policy"
+msgstr "Правила повторной загрузки"
+
+#: templates/reporting/supervisor_documents/list.html:4
+msgid "Zero disables supervisor reuploads. Managers can always download every saved version."
+msgstr "Ноль запрещает повторные загрузки начальникам смены. Менеджеры всегда могут скачать любую сохраненную версию."
+
+#: templates/reporting/supervisor_documents/list.html:4
+msgid "Save window"
+msgstr "Сохранить срок"
+
+#: templates/reporting/supervisor_documents/list.html:5
+msgid "Filter"
+msgstr "Фильтровать"
+
+#: templates/reporting/supervisor_documents/list.html:5
+msgid "Clear"
+msgstr "Очистить"
+
+#: templates/reporting/supervisor_documents/list.html:6
+msgid "Documents"
+msgstr "Документы"
+
+#: templates/reporting/supervisor_documents/list.html:6
+msgid "Select up to 100 records to download their latest versions as a ZIP archive."
+msgstr "Выберите до 100 записей, чтобы скачать их последние версии в ZIP-архиве."
+
+#: templates/reporting/supervisor_documents/list.html:6
+msgid "Download selected"
+msgstr "Скачать выбранное"
+
+#: templates/reporting/supervisor_documents/list.html:6
+msgid "Document date"
+msgstr "Дата документа"
+
+#: templates/reporting/supervisor_documents/list.html:6
+msgid "Type"
+msgstr "Тип"
+
+#: templates/reporting/supervisor_documents/list.html:6
+msgid "Details"
+msgstr "Сведения"
+
+#: templates/reporting/supervisor_documents/list.html:7
+msgid "Versions"
+msgstr "Версии"
+
+#: templates/reporting/supervisor_documents/list.html:7
+msgid "No documents match these filters."
+msgstr "По этим фильтрам документы не найдены."
+
+#~ msgid "Deactivate"
+#~ msgstr "Отключить"
+
+#~ msgid "Replace recovery codes"
+#~ msgstr "Заменить коды восстановления"
+
+#~ msgid "Generate recovery codes"
+#~ msgstr "Создать коды восстановления"
+
+#~ msgid "Generate"
+#~ msgstr "Создать"
+
+#~ msgid "Deactivate MFA"
+#~ msgstr "Отключить MFA"
+
+#~ msgid "Deactivate authenticator app"
+#~ msgstr "Отключить приложение-аутентификатор"
+
+#~ msgid "Generate new codes"
+#~ msgstr "Создать новые коды"

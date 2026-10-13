@@ -1,0 +1,6 @@
+{% extends "base.html" %}{% load i18n %}
+{% block title %}{% translate "Confirm your identity" %} · Work Hours{% endblock %}
+{% block content %}
+<header class="page-head"><div><p class="eyebrow">ACCOUNT SECURITY</p><h1>{% translate "Confirm your identity" %}</h1><p class="muted">Enter your current password to continue.</p></div><a class="button" href="{% url 'mfa_index' %}">← {% translate "Back" %}</a></header>
+<section class="panel form-panel"><form method="post" action="{% url 'account_reauthenticate' %}">{% csrf_token %}{{ redirect_field }}{{ form.as_p }}<div class="form-actions"><a class="button" href="{% url 'mfa_index' %}">{% translate "Back" %}</a><button class="button primary" type="submit">{% translate "Confirm" %}</button></div></form></section>
+{% endblock %}

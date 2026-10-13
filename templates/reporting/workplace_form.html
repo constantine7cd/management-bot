@@ -1,0 +1,5 @@
+{% extends "base.html" %}
+{% block content %}
+<header class="page-head"><div><p class="eyebrow">WORKPLACE</p><h1>{{ title }}</h1><p class="muted">Add one row for every numbered shift workers can select.</p></div></header>
+<form method="post">{% csrf_token %}<section class="panel form-panel">{{ form.as_p }}</section><section class="panel"><div class="panel-head"><h2>Daily shifts</h2></div>{{ formset.management_form }}{% for shift_form in formset %}<div class="formset-row">{{ shift_form.id }}<label>Number{{ shift_form.number }}</label><label>Name{{ shift_form.name }}</label><label>Starts{{ shift_form.start_time }}</label><label>Ends{{ shift_form.end_time }}</label><label>Active{{ shift_form.is_active }}</label>{% if shift_form.instance.pk %}<label>Delete{{ shift_form.DELETE }}</label>{% endif %}{{ shift_form.non_field_errors }}</div>{% endfor %}</section><div class="form-actions"><a class="button" href="{% url 'workplaces' %}">Cancel</a><button class="button primary">Save workplace</button></div></form>
+{% endblock %}

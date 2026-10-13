@@ -1,0 +1,7 @@
+{% extends "base.html" %}{% load i18n %}
+{% block title %}{% translate "Recovery codes" %} · Work Hours{% endblock %}
+{% block content %}
+<header class="page-head"><div><p class="eyebrow">ACCOUNT SECURITY</p><h1>{% translate "Recovery codes" %}</h1><p class="muted">Each code can be used only once.</p></div><a class="button" href="{% url 'mfa_index' %}">← {% translate "Back" %}</a></header>
+<section class="panel form-panel">{% if can_view_codes %}<div class="notice warning"><b>{% translate "Save these codes now" %}</b><br>They will not be displayed again after you leave this page. Store them in a password manager or another secure location.</div><label>Unused codes<textarea class="recovery-codes" rows="{{ unused_codes|length|default:5 }}" readonly>{% for code in unused_codes %}{{ code }}{% if not forloop.last %}
+{% endif %}{% endfor %}</textarea></label>{% else %}<div class="notice">{% translate "These recovery codes have already been displayed and cannot be viewed again. Contact an administrator for a complete MFA reset if they were not saved." %}</div>{% endif %}<div class="form-actions"><a class="button" href="{% url 'mfa_index' %}">{% translate "Back" %}</a></div></section>
+{% endblock %}
